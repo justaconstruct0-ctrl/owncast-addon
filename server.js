@@ -32,6 +32,8 @@ app.get('/stream/tv/:id.json', (req, res) => {
 
 });
 
-app.listen(4321, '127.0.0.1', () => {
-    console.log('Addon running on port 4321');
+const PORT = process.env.PORT || 4321;
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Addon running on port ${PORT}`);
 });
