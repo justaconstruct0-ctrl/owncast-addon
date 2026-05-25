@@ -13,11 +13,12 @@ const manifest = {
     resources: ["catalog", "meta", "stream"],
     types: ["tv"],
     catalogs: [
-        {
-            type: "tv",
-            id: "owncast"
-        }
-    ],
+    {
+        type: "tv",
+        id: "owncast",
+        name: "Owncast Live"
+    }
+],
     idPrefixes: ["owncast"]
 };
 
