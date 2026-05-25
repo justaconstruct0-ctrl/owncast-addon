@@ -10,8 +10,14 @@ const manifest = {
     version: "1.0.0",
     name: "Owncast Live",
     description: "My Owncast stream",
-    resources: ["stream"],
+    resources: ["catalog", "meta", "stream"],
     types: ["tv"],
+    catalogs: [
+        {
+            type: "tv",
+            id: "owncast"
+        }
+    ],
     idPrefixes: ["owncast"]
 };
 
@@ -19,17 +25,40 @@ app.get('/manifest.json', (req, res) => {
     res.json(manifest);
 });
 
-app.get('/stream/tv/:id.json', (req, res) => {
+app.get('/catalog/tv/owncast.json', (req, res) => {
+    res.json({
+        metas: [
+            {
+                id: "owncaststream",
+                type: "tv",
+                name: "My Live Stream",
+                poster: "https://placehold.co/300x450/png"
+            }
+        ]
+    });
+});
 
+app.get('/meta/tv/:id.json', (req, res) => {
+    res.json({
+        meta: {
+            id: "owncaststream",
+            type: "tv",
+            name: "My Live Stream",
+            poster: "https://placehold.co/300x450/png",
+            description: "Live Owncast Stream"
+        }
+    });
+});
+
+app.get('/stream/tv/:id.json', (req, res) => {
     res.json({
         streams: [
             {
-                title: "My Live Stream",
+                title: "Owncast Live",
                 url: "https://leg-von-delete-tickets.trycloudflare.com/hls/stream.m3u8"
             }
         ]
     });
-
 });
 
 const PORT = process.env.PORT || 4321;
