@@ -25,7 +25,7 @@ app.get('/stream/tv/:id.json', (req, res) => {
         streams: [
             {
                 title: "My Live Stream",
-                url: "http://192.168.100.75:8080/hls/stream.m3u8"
+                url: "https://leg-von-delete-tickets.trycloudflare.com/hls/stream.m3u8"
             }
         ]
     });
